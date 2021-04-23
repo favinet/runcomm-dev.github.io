@@ -126,11 +126,9 @@ func openMPAdvertise(_ mbrId : String, userInfo: [AnyHashable : Any])
 * 아래는 터치애드 전면광고 시작함수 호출 예시입니다.
 ```
 func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000)) {
         
-        TASDKManager.openMPAdvertise("멤버십카드번호", userInfo: response.notification.request.content.userInfo)
+    TASDKManager.openMPAdvertise("멤버십카드번호", userInfo: response.notification.request.content.userInfo)
         
-    }
     completionHandler()
 }
 ```
@@ -160,10 +158,8 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent noti
 ```
 private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     //[AnyHashable : Any]
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000)) {
-        TASDKManager.openMPAdvertise("멤버십카드번호", userInfo: userInfo)
-    }
+
+    TASDKManager.openMPAdvertise("멤버십카드번호", userInfo: userInfo)
 
 }
 ```
